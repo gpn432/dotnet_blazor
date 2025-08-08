@@ -1,0 +1,33 @@
+@rendermode InteractiveServer
+@page "/add"
+
+@using demo5.Components.Utils
+
+<h3>Add Two Numbers</h3>
+
+<div class="mb-2">
+    <InputNumber @bind-Value="num1" class="form-control" placeholder="Enter first number" />
+</div>
+
+<div class="mb-2">
+    <InputNumber @bind-Value="num2" class="form-control" placeholder="Enter second number" />
+</div>
+
+<button class="btn btn-primary" @onclick="Add">Add</button>
+
+<p class="mt-3">
+    <strong>Result:</strong> @result <br />
+    <strong>Num1:</strong> @num1 <br />
+    <strong>Num2:</strong> @num2
+</p>
+
+@code {
+    private int num1;
+    private int num2;
+    private int result;
+
+    private void Add()
+    {
+        result = MathHelper.Calc(num1, num2);
+    }
+}
